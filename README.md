@@ -8,4 +8,10 @@ Originally made for Ezywis' stream.
 3. Play any song in Osu and a .txt file will pop next to Osuwis.
 4. Use that .txt file to display the song's name on your stream :)
 
-# Compiling
+# Compilation
+## Requirements
+mingw-w64, that supports the C++17 revision. I don't use any particular C++17 feature so you could change that, I guess.  
+ImageMagick 7 or later to produce the multi-size icon that will be included in the software.
+
+## Instructions
+Edit the makefile to fits your need and execute something like `C:\mingw64\bin\mingw32-make.exe -f makefile`
