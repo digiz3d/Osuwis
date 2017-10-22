@@ -5,3 +5,6 @@ compile.bat
 *.o
 *.exe
 
+// allow the finished program to be downloaded
+!Osuwis.exe
+

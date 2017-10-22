@@ -12,7 +12,7 @@ BEGIN
 		BEGIN
 			VALUE "Comments", "Do not forget to enable the MSN integration setting in Osu!"
 			VALUE "CompanyName", "digiz3d"
-			VALUE "FileDescription", "Gets the song playing from Osu! and writes it to a text file, so you can put it in your streaming software."
+			VALUE "FileDescription", "Detect the song playing in Osu! and writes it to a .txt file."
 			VALUE "FileVersion", "1.0.0.0"
 			VALUE "InternalName", "Osuwis.exe"
 			VALUE "LegalCopyright", "Copyright 2017 digiz3d"

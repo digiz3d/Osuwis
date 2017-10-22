@@ -6,7 +6,7 @@
 		name="digiz3d.osuwis"
 		type="win32"
 	/>
-	<description>Detect the song playing in Osu! and write it to a .txt file. Software originally made for Ezywis.</description>
+	<description>Detect the song playing in Osu! and writes it to a .txt file.</description>
 	<dependency>
 		<dependentAssembly>
 			<assemblyIdentity
