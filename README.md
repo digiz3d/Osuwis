@@ -1,5 +1,5 @@
 # Description
-Detect the song playing in Osu! and writes it to a .txt file.
+Detects the song playing in Osu! and writes it to a .txt file.
 Originally made for Ezywis' stream.
 
 # Usage
