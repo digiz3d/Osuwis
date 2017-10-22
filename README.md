@@ -14,4 +14,4 @@ mingw-w64, that supports the C++17 revision. I don't use any particular C++17 fe
 ImageMagick 7 or later to produce the multi-size icon that will be included in the software.
 
 ## Instructions
-Edit the makefile to fits your need and execute something like `C:\mingw64\bin\mingw32-make.exe -f makefile`
+Edit the makefile to fit your needs and execute something like `C:\mingw64\bin\mingw32-make.exe -f makefile`
