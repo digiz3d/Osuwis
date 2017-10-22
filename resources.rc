@@ -1,0 +1,28 @@
+OSUWIS_ICON ICON "icon.ico"
+1 BITMAP "skin.bmp"
+1 24 "Osuwis.exe.manifest"
+1 VERSIONINFO
+FILEVERSION 1,0,0,1
+FILEOS 0x04
+FILETYPE 0x01
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "000004B0"
+		BEGIN
+			VALUE "Comments", "Do not forget to enable the MSN integration setting in Osu!"
+			VALUE "CompanyName", "digiz3d"
+			VALUE "FileDescription", "Gets the song playing from Osu! and writes it to a text file, so you can put it in your streaming software."
+			VALUE "FileVersion", "1.0.0.0"
+			VALUE "InternalName", "Osuwis.exe"
+			VALUE "LegalCopyright", "Copyright 2017 digiz3d"
+			VALUE "OriginalFilename", "Osuwis.exe"
+			VALUE "ProductName", "Osuwis"
+			VALUE "ProductVersion", "Build 1"
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x0000, 1200
+	END
+END

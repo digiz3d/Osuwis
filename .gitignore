@@ -1,0 +1,7 @@
+// custom compiler laucher
+compile.bat
+
+// junk stuff
+*.o
+*.exe
+
