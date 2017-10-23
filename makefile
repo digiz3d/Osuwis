@@ -21,7 +21,7 @@ $(OBJDIR)main.o: $(SRCDIR)main.cpp
 	$(GCC) -o $@ -c $< $(CFLAGS)
 
 
-run:
+run: $(BINDIR)$(BINARY)
 	$(BINDIR)$(BINARY)
 
 .PHONY: clean
