@@ -5,6 +5,7 @@ IMAGEMAGICK="C:\Program Files\ImageMagick-7.0.5-Q16\magick.exe"
 CFLAGS=-W -Wall -Wextra -std=c++17
 LDFLAGS=-static -s -mwindows
 
+RESDIR=res
 SRCDIR=src
 OBJDIR=obj
 BINDIR=bin
@@ -13,7 +14,7 @@ BINARY=Osuwis
 all: clean directories $(BINDIR)/$(BINARY)
 
 $(BINDIR)/$(BINARY): $(OBJDIR)/main.o
-	$(IMAGEMAGICK) icons/icon16.ico icons/icon32.ico icons/icon48.ico icons/icon128.ico icons/icon256.ico $(OBJDIR)/icon.ico
+	$(IMAGEMAGICK) $(RESDIR)/icons/icon16.ico $(RESDIR)/icons/icon32.ico $(RESDIR)/icons/icon48.ico $(RESDIR)/icons/icon128.ico $(RESDIR)/icons/icon256.ico $(OBJDIR)/icon.ico
 	$(WINDRES) $(SRCDIR)/resources.rc $(OBJDIR)/resources.o
 	$(GCC) -o $@ $< $(OBJDIR)/resources.o $(LDFLAGS)
 

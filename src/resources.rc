@@ -1,5 +1,5 @@
 OSUWIS_ICON ICON "obj/icon.ico"
-1 BITMAP "skin.bmp"
+1 BITMAP "res/skin.bmp"
 1 24 "Osuwis.exe.manifest"
 1 VERSIONINFO
 FILEVERSION 1,0,0,1
