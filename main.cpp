@@ -14,18 +14,18 @@ BYTE* Get24BitPixels(HBITMAP pBitmap, WORD *pwWidth, WORD *pwHeight);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow)
 {
-	// skip the unused instance warning
+	// disable the unused instance warning
 	(void)hPrevInstance;
 	(void)lpCmdLine;
 	(void)nCmdShow;
-	
+
 	WNDCLASSEX wcex;
 	HWND hWindow;
 	MSG message;
 	HBITMAP hSkinBmp;
-	
+
 	const wchar_t *wWindowClass = L"MsnMsgrUIManager";
-	
+
 	wcex.cbSize 		= sizeof(WNDCLASSEX);
 	wcex.style			= CS_HREDRAW | CS_VREDRAW;
 	wcex.lpfnWndProc	= procWindow;
@@ -38,12 +38,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine,
 	wcex.lpszMenuName	= NULL;
 	wcex.lpszClassName	= wWindowClass;
 	wcex.hIconSm		= LoadIcon(hInstance, L"OSUWIS_ICON");
-	
+
 	if(!RegisterClassEx(&wcex))
 	{
 		return 1;
 	}
-	
+
 	hWindow = CreateWindowEx(
 		WS_EX_LEFT,
 		wWindowClass,
@@ -58,17 +58,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine,
 		hInstance,
 		NULL
 	);
-	
+
 	HRGN hCustomRegion;
-	
+
 	hSkinBmp = LoadBitmap(GetModuleHandle(NULL), MAKEINTRESOURCE(1));
 	hCustomRegion = ScanRegion(hSkinBmp, 0, 0, 0);
 	SetWindowRgn(hWindow, hCustomRegion, true);
-	
+
 	SetWindowLong(hWindow, GWL_STYLE, 0);
-	
+
 	ShowWindow(hWindow, SW_SHOW);
-	UpdateWindow(hWindow);	
+	UpdateWindow(hWindow);
 
 	while(GetMessage(&message,NULL,0,0) != 0)
 	{
@@ -118,7 +118,7 @@ LRESULT CALLBACK procWindow(HWND hFenetre, UINT message, WPARAM wParam, LPARAM l
 			}
 			return 0;
 		}
-		
+
 		case WM_COPYDATA:
 		{
 			COPYDATASTRUCT* pcds = (COPYDATASTRUCT*) lParam;
@@ -132,10 +132,10 @@ LRESULT CALLBACK procWindow(HWND hFenetre, UINT message, WPARAM wParam, LPARAM l
 				int sep4(str.find(L"\\0", sep3+2));
 				int sep5(str.find(L"\\0", sep4+2));
 				int sep6(str.find(L"\\0", sep5+2));
-				
+
 				wstring songName(str.substr(sep4+2, sep5-sep4-2));
 				wstring artistName(str.substr(sep5+2, sep6-sep5-2));
-				
+
 				wofstream myfile;
 				myfile.open("Osuwis.txt", ios::trunc);
 				if (myfile.is_open())
@@ -202,15 +202,15 @@ BYTE* Get24BitPixels(HBITMAP pBitmap, WORD *pwWidth, WORD *pwHeight)
 	wBmpHeight = (WORD)pbmiInfo->bmiHeader.biHeight;
 	*pwWidth  = wBmpWidth;
 	*pwHeight = wBmpHeight;
-	
+
 	BYTE *pPixels = new BYTE[wBmpWidth*wBmpHeight*3];
     if (!pPixels)
 	{
 		return NULL;
 	}
-	
+
 	HDC hDC = GetWindowDC(NULL);
- 
+
 	bmiInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 	bmiInfo.bmiHeader.biWidth = wBmpWidth;
 	bmiInfo.bmiHeader.biHeight = -wBmpHeight;
@@ -224,9 +224,9 @@ BYTE* Get24BitPixels(HBITMAP pBitmap, WORD *pwWidth, WORD *pwHeight)
 	bmiInfo.bmiHeader.biClrImportant = 0;
 
 	int iRes = GetDIBits(hDC,pBitmap,0,wBmpHeight,(LPVOID)pPixels,&bmiInfo,DIB_RGB_COLORS);
- 
+
 	ReleaseDC(NULL,hDC);
-	
+
 	if (!iRes)
 	{
 		delete pPixels;
