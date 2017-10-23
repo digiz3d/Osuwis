@@ -4,21 +4,28 @@ IMAGEMAGICK="C:\Program Files\ImageMagick-7.0.5-Q16\magick.exe"
 
 CFLAGS=-W -Wall -Wextra -std=c++17
 LDFLAGS=-static -s -mwindows
-EXEC=beclean Osuwis clean
 
-all: $(EXEC)
+SRCDIR=src/
+OBJDIR=obj/
+BINDIR=bin/
+BINARY=Osuwis
 
-Osuwis: main.o
-	$(IMAGEMAGICK) icons/icon16.ico icons/icon32.ico icons/icon48.ico icons/icon128.ico icons/icon256.ico icon.ico
-	$(WINDRES) resources.rc resources.o
-	$(GCC) -o $@ $< resources.o $(LDFLAGS)
+all: clean $(BINDIR)$(BINARY)
 
-main.o: main.cpp
+$(BINDIR)$(BINARY): $(OBJDIR)main.o
+	$(IMAGEMAGICK) icons/icon16.ico icons/icon32.ico icons/icon48.ico icons/icon128.ico icons/icon256.ico $(OBJDIR)icon.ico
+	$(WINDRES) $(SRCDIR)resources.rc $(OBJDIR)resources.o
+	$(GCC) -o $@ $< $(OBJDIR)resources.o $(LDFLAGS)
+
+$(OBJDIR)main.o: $(SRCDIR)main.cpp
 	$(GCC) -o $@ -c $< $(CFLAGS)
 
-beclean:
-	del *.o
-	
+
+run:
+	$(BINDIR)$(BINARY)
+
+.PHONY: clean
+
 clean:
-	del *.o
-	del *.ico
+	@del /s /q obj\*
+	@del /s /q bin\*
